@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Actor Guessing Game</title>
+  <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+</head>
+<body>
+  <div id="initial-screen">
+    <h1>Movie Guessing Game</h1>
+    <p>Welcome to the Movie Guessing Game! Test your movie knowledge by guessing the movies based on the given actor's name.</p>
+    <form id="player-form">
+      <label for="name-input">Enter your name:</label>
+      <input type="text" id="name-input" required>
+    </form>
+    <div id="category-filter">
+      <h3>Category:</h3>
+      <button class="category-button selected" data-category="All">All</button>
+      <button class="category-button" data-category="Action">Action</button>
+      <button class="category-button" data-category="Drama">Drama</button>
+      <button class="category-button" data-category="Comedy">Comedy</button>
+      <button class="category-button" data-category="Rom-Com">Rom-Com</button>
+      <button class="category-button" data-category="Horror">Horror</button>
+      <button class="category-button" data-category="Fantasy">Fantasy</button>
+    </div>
+    <div class="grid">
+      <button id="easy-button" class="selected">Easy</button>
+      <button id="medium-button">Medium</button>
+      <button id="hard-button">Hard</button>
+    </div>
+    <button id="start-button">Start Game</button>
+    <div class="how-to-play">
+      <h2>How to Play:</h2>
+      <ul>
+        <li>Enter your name in the input field.</li>
+        <li>Select a category or leave it as "All" to include movies from all categories.</li>
+        <li>Choose the game difficulty by clicking on the Easy or Hard button.</li>
+        <li>Click the Start button to begin the game.</li>
+        <li>Guess the movies based on the given actor's filmography. Enter your guesses in the input field.</li>
+        <li>If your guess matches a movie title, it will be marked as green and your score will increase.</li>
+        <li>If your guess is close to a movie title, it will be marked as orange, but your score will not increase.</li>
+        <li>If your guess is incorrect, it will be displayed as is, and your score will not increase.</li>
+        <li>The game ends when you guess all the movies correctly or when the time runs out.</li>
+      </ul>
+    </div>
+    <div id="leaderboard">
+      <h3>Leaderboard</h3>
+      <ul id="leaderboard-list"></ul>
+    </div>
+  </div>
+
+  <div id="game-screen" style="display: none;">
+    <div class="actor-info">
+      <div id="actor-name"></div>
+      <img id="actor-image" />
+    </div>
+    <form id="guess-form">
+      <label for="guess-input">Guess the movie:</label>
+      <input type="text" id="guess-input" required>
+      <button type="submit">Guess</button>
+    </form>
+    <div id="guess-list">
+      <h3>Your Guesses</h3>
+      <ul></ul>
+    </div>
+    <div id="score">
+      <h3>Score</h3>
+      <div id="score-value">0</div>
+    </div>
+    <div id="time-remaining">
+      <h3>Time Remaining</h3>
+      <div id="time-value"></div>
+    </div>
+    <button id="end-button">End Game</button>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/game2.js"></script>
+</body>
+</html>
