@@ -1,4 +1,5 @@
 // Define showActorInfo
+const border = document.getElementById("name-input").style.border = "1px solid #007bff"
 function showActorInfo(actor) {
     const actorName = document.getElementById("actor-name");
     const actorImage = document.getElementById("actor-image");
@@ -77,7 +78,8 @@ function showActorInfo(actor) {
   
     // Validate name input
     if (playerName === "") {
-      alert("Please enter your name.");
+      document.getElementsByClassName("name-error")[0].textContent = "Please Enter Your Name";
+      document.getElementById("name-input").style.border = "1px solid red";
       nameInput.focus();
       return;
     }
