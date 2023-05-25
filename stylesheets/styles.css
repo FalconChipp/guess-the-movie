@@ -12,12 +12,17 @@ h1 {
   text-align: center;
   font-size: 2.5em;
   margin-top: 20px;
+  font-family: 'Cabin Condensed';
+}
+h2, h3 {
+  font-family: 'Cabin Condensed';
 }
 
 p {
   text-align: center;
   font-size: 1.2em;
   margin-top: 10px;
+  font-family: 'Roboto';
 }
 
 .grid {
@@ -35,7 +40,8 @@ p {
 #medium-button,
 #hard-button {
   display: block;
-  margin: 20px auto;
+  /* margin: 20px auto; */
+  margin: 20px auto 10px auto;
   font-size: 1.2em;
   padding: 10px 20px;
   border-radius: 5px;
@@ -43,12 +49,6 @@ p {
   color: #fff;
   border: none;
   cursor: pointer;
-}
-
-#easy-button.selected,
-#medium-button.selected,
-#hard-button.selected {
-  background-color: green;
 }
 
 /* #end-button {
@@ -110,7 +110,9 @@ input[type="text"] {
   color: white;
   text-align: center;
 }
-
+#guess-input {
+  border: #007bff 1px solid;
+}
 
 button[type="submit"] {
   font-size: 1.2em;
@@ -181,6 +183,7 @@ button[type="submit"] {
 
 #category-filter {
   display: flex;
+  gap: 10px;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
@@ -191,7 +194,7 @@ button[type="submit"] {
   margin-right: 10px;
 }
 
-.category-button {
+/* .category-button {
   font-size: 1em;
   padding: 5px 10px;
   border-radius: 5px;
@@ -204,7 +207,7 @@ button[type="submit"] {
 
 .category-button.selected {
   background-color: green;
-}
+} */
 #player-form {
   max-width: fit-content;
   margin: 0 auto;
@@ -231,6 +234,8 @@ button[type="submit"] {
 
 #start-button {
   font-size: 20px; 
+  font-family: 'Cabin Condensed';
+  text-transform: uppercase;
   padding: 0.7em 2.7em;
   letter-spacing: 0.15em;
   position: relative;
@@ -290,10 +295,144 @@ button[type="submit"] {
 }
 ul {
   list-style: none;
+  font-family: 'Roboto';
 }
 ul li {
   font-size: 20px;
 }
 .name-error {
   color: red;
+}
+
+button:hover + .tooltip-text-easy,
+button:hover + .tooltip-text-med,
+button:hover + .tooltip-text-hard {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip-text-easy,
+.tooltip-text-med,
+.tooltip-text-hard {
+  font-family: 'Roboto';
+  visibility: hidden;
+  width: 120px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: relative;
+  z-index: 1;
+  bottom: 125%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip-text-easy::after,
+.tooltip-text-med::after,
+.tooltip-text-hard::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #000 transparent transparent transparent;
+  transform: rotate(180deg);
+}
+.tooltip-text-med {
+  left: 6%;
+}
+
+#easy-button,
+#medium-button,
+#hard-button {
+  font-size: 18px; 
+  font-family: 'Cabin Condensed';
+  padding: 0.7em 2em;
+  letter-spacing: 0.15em;
+  position: relative;
+  border-radius: 0.6em;
+  overflow: hidden;
+  transition: all 0.3s; 
+  background: linear-gradient(to right, rgba(0, 123, 255, 0.1) 1%, transparent 40%, transparent 60%, rgba(0, 123, 255, 0.1) 100%); 
+  color: white;
+  box-shadow: inset 0 0 10px rgba(0, 123, 255, 0.4), 0 0 9px 3px rgba(0, 123, 255, 0.1);
+}
+#easy-button:hover,
+#medium-button:hover,
+#hard-button:hover  {
+  color: #82ffc9;
+  box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.6), 0 0 9px 3px rgba(27, 253, 156, 0.2);
+  background: linear-gradient(to right, rgba(27, 253, 156, 0.1) 1%, transparent 40%, transparent 60%, rgba(27, 153, 156, 0.1) 100%); 
+}
+#easy-button::before,
+#medium-button::before,
+#hard-button::before  {
+  content: '';
+  position: absolute;
+  left: -4em;
+  width: 4em;
+  height: 100%;
+  top: 0;
+  transition: transform .4s ease-in-out;
+  background: linear-gradient(to right, transparent 1%, rgba(27, 253, 156, 0.1) 40%, rgba(27, 253, 156, 0.1) 60%, transparent 100%);
+}
+#easy-button:hover::before,
+#medium-button:hover::before,
+#hard-button:hover::before  {
+  transform: translateX(15em);
+}
+#easy-button.selected,
+#medium-button.selected,
+#hard-button.selected  {
+  box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.6), 0 0 9px 3px rgba(27, 253, 156, 0.2);
+  background: linear-gradient(to right, rgba(27, 253, 156, 0.1) 1%, transparent 40%, transparent 60%, rgba(27, 153, 156, 0.1) 100%); 
+}
+
+.category-button {
+  font-size: 16px; 
+  font-family: 'Cabin Condensed';
+  padding: 0.7em 1.5em;
+  letter-spacing: 0.15em;
+  position: relative;
+  border-radius: 0.6em;
+  overflow: hidden;
+  transition: all 0.3s; 
+  background: linear-gradient(to right, rgba(0, 123, 255, 0.1) 1%, transparent 40%, transparent 60%, rgba(0, 123, 255, 0.1) 100%); 
+  color: white;
+  box-shadow: inset 0 0 10px rgba(0, 123, 255, 0.4), 0 0 9px 3px rgba(0, 123, 255, 0.1);
+}
+.category-button:hover,
+.category-button:hover,
+.category-button:hover  {
+  color: #82ffc9;
+  box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.6), 0 0 9px 3px rgba(27, 253, 156, 0.2);
+  background: linear-gradient(to right, rgba(27, 253, 156, 0.1) 1%, transparent 40%, transparent 60%, rgba(27, 153, 156, 0.1) 100%); 
+}
+.category-button::before,
+.category-button::before,
+.category-button::before  {
+  content: '';
+  position: absolute;
+  left: -4em;
+  width: 4em;
+  height: 100%;
+  top: 0;
+  transition: transform .4s ease-in-out;
+  background: linear-gradient(to right, transparent 1%, rgba(27, 253, 156, 0.1) 40%, rgba(27, 253, 156, 0.1) 60%, transparent 100%);
+}
+.category-button:hover::before,
+.category-button:hover::before,
+.category-button:hover::before  {
+  transform: translateX(15em);
+}
+.category-button.selected,
+.category-button.selected,
+.category-button.selected  {
+  box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.6), 0 0 9px 3px rgba(27, 253, 156, 0.2);
+  background: linear-gradient(to right, rgba(27, 253, 156, 0.1) 1%, transparent 40%, transparent 60%, rgba(27, 153, 156, 0.1) 100%); 
 }

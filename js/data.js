@@ -271,8 +271,6 @@ var actorList = [
       "The Big Short",
       "Despicable Me",
       "Foxcatcher",
-      "The Office",
-      "The Morning Show",
     ],
     category: "Comedy",
   },

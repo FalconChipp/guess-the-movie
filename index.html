@@ -2,6 +2,9 @@
 <html>
 <head>
   <title>Actor Guessing Game</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabin+Condensed&family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
 </head>
 <body>
@@ -23,9 +26,18 @@
       <button class="category-button" data-category="Fantasy">Fantasy</button>
     </div>
     <div class="grid">
-      <button id="easy-button" class="selected"><span>Easy</span></button>
-      <button id="medium-button"><span>Medium</span></button>
-      <button id="hard-button"><span>Hard</span></button>
+      <div>
+        <button id="easy-button" class="selected">Easy</button>
+        <span class="tooltip-text-easy">120 Seconds</span>
+      </div>
+      <div>
+        <button id="medium-button">Medium</button>
+        <span class="tooltip-text-med">60 Seconds</span>
+      </div>
+      <div>
+        <button id="hard-button">Hard</button>
+        <span class="tooltip-text-hard">30 Seconds</span>
+      </div>
     </div>
     <button id="start-button">Start Game</button>
     <div class="how-to-play">
@@ -56,7 +68,7 @@
     </div>
     <form id="guess-form">
       <label for="guess-input">Guess the movie:</label>
-      <input type="text" id="guess-input" required>
+      <input type="text" id="guess-input" required placeholder="Enter Guess Here">
       <button type="submit">Guess</button>
     </form>
     <div id="guess-list">
