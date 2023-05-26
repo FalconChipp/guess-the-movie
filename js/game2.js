@@ -104,7 +104,7 @@ function showActorInfo(actor) {
     }
 
     resetGuessList();
-    // Randomize Actors from array, fetch first index and display
+    // Randomise Actors from array, fetch first index and display
     const filteredActors = actorList.filter(
       (actor) => actor.category === selectedCategory || selectedCategory === "All"
     );
