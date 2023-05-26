@@ -1,5 +1,7 @@
+// Set default input border 
+const border = document.getElementById("name-input").style.border = "1px solid #007bff";
+
 // Define showActorInfo
-const border = document.getElementById("name-input").style.border = "1px solid #007bff"
 function showActorInfo(actor) {
     const actorName = document.getElementById("actor-name");
     const actorImage = document.getElementById("actor-image");
